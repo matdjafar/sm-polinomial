@@ -5,19 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Arena Soal Polinomial</title>
   <link rel="stylesheet" href="assets/style.css">
-  <script>
-    window.MathJax = {
-      tex: {
-        inlineMath: [['$', '$'], ['\\(', '\\)']]
-      }
-    };
-  </script>
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  
+  
   <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <script src="assets/soal_data.js"></script>
 </head>
 <body>
-  <div id="bannerTarget" class="banner">🎉 Kelompok <span id="bannerKel"></span> telah mencapai target poin! 🎉</div>
+  <div id="bannerTarget" class="banner">ðŸŽ‰ Kelompok <span id="bannerKel"></span> telah mencapai target poin! ðŸŽ‰</div>
   
   <div id="setupScreen" class="setup-container">
     <h2 style="text-align:center; margin-bottom: 20px;">Masuk Arena</h2>
@@ -39,8 +33,8 @@
     <header>
       <h1>Arena Soal Polinomial</h1>
       <div class="user-info">
-        <div>👤 <span id="displayNama"></span> (Kel. <span id="displayKelompok"></span>)</div>
-        <div class="score-badge">⭐ <span id="displayPoin">0</span></div>
+        <div>ðŸ‘¤ <span id="displayNama"></span> (Kel. <span id="displayKelompok"></span>)</div>
+        <div class="score-badge">â­ <span id="displayPoin">0</span></div>
       </div>
     </header>
     
@@ -57,22 +51,20 @@
         <div class="modal-title">
           Soal #<span id="mId"></span> 
           <span id="mLevelBadge" class="badge">Mudah</span>
-          <span class="badge" style="background:#4b5563;">💰 <span id="mPoin"></span> Poin</span>
+          <span class="badge" style="background:#4b5563;">ðŸ’° <span id="mPoin"></span> Poin</span>
         </div>
         <div id="mTimer" style="color:var(--sulit); font-weight:bold; font-size:1.5rem; font-variant-numeric: tabular-nums;">03:00</div>
       </div>
       <div class="soal-teks" id="mSoalTeks">Memuat soal...</div>
       <div class="form-group" id="mOpsiList" style="margin-bottom: 25px;">
-        <label style="display:block; margin-bottom:10px; font-weight:bold; font-size:1.1rem;">Jawaban Anda (Polinomial):</label>
+        <label style="display:block; margin-bottom:10px; font-weight:bold; font-size:1.1rem;">Jawaban Anda:</label>
         
-        <div id="polyTermsContainer" style="display:flex; flex-direction:column; gap:10px; margin-bottom:15px;">
-          <!-- Template Baris Suku -->
+        <div id="smartInputContainer" style="display:flex; flex-direction:column; gap:15px; margin-bottom:15px;">
+           <input type="text" id="ans_single" class="form-control" style="font-size: 1.1rem; padding: 15px;" placeholder="Ketik jawaban di sini..." autocomplete="off">
         </div>
-
-        <button id="btnTambahSuku" class="btn btn-outline" style="font-size:0.85rem; padding: 5px 10px;">+ Tambah Suku Lain</button>
         
-        <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 15px; background: rgba(255,255,255,0.05); padding: 10px; border-radius: 4px;">
-          *Pratinjau Jawaban: <b id="polyPreview" style="color:var(--terjawab); font-size:1.1rem; padding-left:10px;">0</b>
+        <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 15px; background: rgba(255,255,255,0.05); padding: 10px; border-radius: 4px; line-height: 1.5;">
+          *Tips Penulisan: Gunakan tanda <b>^</b> untuk pangkat (contoh: <code>x^2</code>). Jika soal meminta hasil bagi dan sisa, Anda bisa memisahkannya dengan koma (contoh: <code>x+2, sisa 4</code>). Untuk pemfaktoran, gunakan kurung (contoh: <code>(x-1)(x+2)</code>). Sistem otomatis mengenali jawaban dengan cerdas.
         </div>
       </div>
       
@@ -98,3 +90,4 @@
   <script src="assets/app.js"></script>
 </body>
 </html>
+
