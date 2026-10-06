@@ -23,12 +23,14 @@ const UI = {
 function initGrid() {
   if(!UI.grid) return;
   UI.grid.innerHTML = '';
-  // Paket berisi 30 soal (10 mudah, 10 menengah, 10 sulit)
-  for(let i=1; i<=30; i++) {
+  // 90 soal dari 3 paket
+  for(let i=1; i<=90; i++) {
     let btn = document.createElement('button');
-    btn.className = `kotak-soal ${i<=10 ? 'level-mudah' : (i<=20 ? 'level-menengah' : 'level-sulit')}`;
+    let localId = ((i - 1) % 30) + 1;
+    let lvl = localId<=10 ? 'level-mudah' : (localId<=20 ? 'level-menengah' : 'level-sulit');
+    btn.className = `kotak-soal ${lvl}`;
     btn.id = `btn-soal-${i}`;
-    let poin = i<=10 ? 100 : (i<=20 ? 200 : 300);
+    let poin = localId<=10 ? 100 : (localId<=20 ? 200 : 300);
     btn.innerHTML = `<div class="soal-id">${i}</div><div class="soal-poin">${poin}</div><div class="soal-label" id="lbl-soal-${i}"></div>`;
     btn.onclick = () => onSoalClick(i);
     UI.grid.appendChild(btn);
@@ -98,15 +100,18 @@ function updateUI() {
   }
 
   let mode = stateGame.pengaturan.modeKunci;
-  let paket = stateGame.pengaturan.paketAktif || "1";
-  for(let i=1; i<=30; i++) {
-    let key = mode === 'GLOBAL' ? `${paket}_${i}_GLOBAL` : `${paket}_${i}_${myData.kelompok}`;
+  for(let i=1; i<=90; i++) {
+    let paket = Math.ceil(i / 30).toString();
+    let localId = ((i - 1) % 30) + 1;
+    
+    let key = mode === 'GLOBAL' ? `${paket}_${localId}_GLOBAL` : `${paket}_${localId}_${myData.kelompok}`;
     let st = stateGame.statusSoal.find(s => s.key === key);
     let btn = document.getElementById(`btn-soal-${i}`);
     let lbl = document.getElementById(`lbl-soal-${i}`);
     if(!btn) continue;
     
-    btn.className = `kotak-soal ${i<=10 ? 'level-mudah' : (i<=20 ? 'level-menengah' : 'level-sulit')}`;
+    let lvl = localId<=10 ? 'level-mudah' : (localId<=20 ? 'level-menengah' : 'level-sulit');
+    btn.className = `kotak-soal ${lvl}`;
     btn.disabled = false;
     lbl.innerText = '';
     
@@ -114,7 +119,7 @@ function updateUI() {
       if(st.status === 'terjawab') {
         btn.classList.add('status-terjawab');
         btn.disabled = true;
-        lbl.innerText = '✔ ' + (mode==='GLOBAL'?`Kel.${st.kelompok}`:'');
+        lbl.innerText = '✔ ' + (mode==='GLOBAL' ? `Kel.${st.kelompok}` : (st.nama || `Kel.${st.kelompok}`));
       } else if (st.status === 'hangus') {
         btn.classList.add('status-hangus');
         btn.disabled = true;
@@ -255,35 +260,39 @@ function cleanMathString(str) {
   str = str.replace(/\ufffd/g, '');
   str = str.replace(/\$/g, '');
   
-  // 2. Wrap functions (e.g. P(x), V(x))
-  str = str.replace(/\b([PVRFS]\([-0-9a-zA-Z]+\))/g, '\\($1\\)');
+  // 2. Wrap standalone polynomials outside parentheses FIRST to avoid inner wrapping collisions
+  str = str.replace(/\b(\d*[a-zA-Z]\^?\d*(?:\s*[-+]\s*\d*[a-zA-Z]?\^?\d*)+)\b/g, '$$$1$$');
   
-  // 3. Wrap polynomial expressions in parentheses
-  str = str.replace(/\(((?:\d*[a-zA-Z]\^?\d*\s*[-+]\s*)+\d*[a-zA-Z]?\^?\d*)\)/g, '\\($1\\)');
+  // 3. Wrap functions (e.g. P(x), V(x))
+  str = str.replace(/\b([PVRFS]\([-0-9a-zA-Z]+\))/g, '$$$1$$');
   
-  // 4. Wrap standalone polynomials outside parentheses
-  str = str.replace(/\b(\d*[a-zA-Z]\^?\d*(?:\s*[-+]\s*\d*[a-zA-Z]?\^?\d*)+)\b/g, '\\($1\\)');
+  // 4. Wrap polynomial expressions in parentheses THAT DON'T ALREADY HAVE MathJax
+  str = str.replace(/\(([^$)]*[a-zA-Z][^$)]*)\)/g, function(match, p1) {
+    if (/karena|jika|dan|atau/i.test(match)) return match;
+    return '$$' + p1 + '$$';
+  });
   
   return str;
 }
 
-async function onSoalClick(id) {
-  if(document.getElementById(`btn-soal-${id}`).disabled) return;
+async function onSoalClick(globalId) {
+  if(document.getElementById(`btn-soal-${globalId}`).disabled) return;
   
-  let paket = stateGame.pengaturan.paketAktif || "1";
+  let paket = Math.ceil(globalId / 30).toString();
+  let localId = ((globalId - 1) % 30) + 1;
   
   try {
-    let btn = document.getElementById(`btn-soal-${id}`);
+    let btn = document.getElementById(`btn-soal-${globalId}`);
     btn.innerText = '⏳';
     
     if (!window.BANK_SOAL || !window.BANK_SOAL[paket]) throw new Error("Data bank soal tidak ditemukan di frontend.");
-    let soalData = window.BANK_SOAL[paket].find(s => s.id == id);
+    let soalData = window.BANK_SOAL[paket].find(s => s.id == localId);
     if (!soalData) throw new Error("ID Soal tidak ditemukan di paket ini.");
     
-    await API.call('bukaSoal', { idSoal: id, paket: paket, kelompok: myData.kelompok, nama: myData.nama });
+    await API.call('bukaSoal', { idSoal: localId, paket: paket, kelompok: myData.kelompok, nama: myData.nama });
     
-    currentSoalId = id;
-    document.getElementById('mId').innerText = id;
+    currentSoalId = globalId;
+    document.getElementById('mId').innerText = globalId;
     document.getElementById('mLevelBadge').innerText = soalData.level;
     document.getElementById('mLevelBadge').style.background = `var(--${soalData.level.toLowerCase()})`;
     document.getElementById('mPoin').innerText = soalData.poin;
@@ -295,7 +304,8 @@ async function onSoalClick(id) {
     
     document.getElementById('modalSoal').classList.add('active');
     
-    startTimer(stateGame.pengaturan.timerMenit * 60);
+    // Timer dihilangkan
+    if(document.getElementById('mTimer')) document.getElementById('mTimer').style.display = 'none';
     
   } catch(e) {
     alert(e.message);
@@ -329,8 +339,9 @@ async function closeModal(isTimeout=false) {
   clearInterval(timerInt);
   if(currentSoalId) {
     try {
-      let paket = stateGame.pengaturan.paketAktif || "1";
-      await API.call('lepasSoal', { idSoal: currentSoalId, paket: paket, kelompok: myData.kelompok });
+      let paket = Math.ceil(currentSoalId / 30).toString();
+      let localId = ((currentSoalId - 1) % 30) + 1;
+      await API.call('lepasSoal', { idSoal: localId, paket: paket, kelompok: myData.kelompok });
     } catch(e){}
     currentSoalId = null;
   }
@@ -343,20 +354,21 @@ if(UI.btnKirim) {
   UI.btnKirim.onclick = async () => {
     if(currentPolyTerms.length === 0) return;
     
-    let paket = stateGame.pengaturan.paketAktif || "1";
-    let soalData = window.BANK_SOAL[paket].find(s => s.id == currentSoalId);
+    let paket = Math.ceil(currentSoalId / 30).toString();
+    let localId = ((currentSoalId - 1) % 30) + 1;
+    let soalData = window.BANK_SOAL[paket].find(s => s.id == localId);
     let isBenar = isPolynomialEqual(currentPolyTerms, soalData.kunci);
     let poinLevel = soalData.poin;
     let jawabanTeks = getSimplifiedPolynomialString(currentPolyTerms);
     
-    let idKey = `${paket}-${currentSoalId}-${myData.kelompok}-${myData.nama}-${Date.now()}`;
+    let idKey = `${paket}-${localId}-${myData.kelompok}-${myData.nama}-${Date.now()}`;
     
     UI.btnKirim.disabled = true;
     UI.btnKirim.innerText = 'Mengirim...';
     
     try {
       let res = await API.call('kirimJawaban', {
-        idSoal: currentSoalId, paket: paket, kelompok: myData.kelompok, nama: myData.nama, 
+        idSoal: localId, paket: paket, kelompok: myData.kelompok, nama: myData.nama, 
         isBenar: isBenar, poinLevel: poinLevel, jawabanTeks: jawabanTeks, idempotencyKey: idKey
       });
       
