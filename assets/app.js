@@ -267,10 +267,7 @@ function cleanMathString(str) {
   str = str.replace(/\b([PVRFS]\([-0-9a-zA-Z]+\))/g, '$$$1$$');
   
   // 4. Wrap polynomial expressions in parentheses THAT DON'T ALREADY HAVE MathJax
-  str = str.replace(/\(([^$)]*[a-zA-Z][^$)]*)\)/g, function(match, p1) {
-    if (/karena|jika|dan|atau/i.test(match)) return match;
-    return '$$' + p1 + '$$';
-  });
+  str = str.replace(/\(((?:\d*[a-zA-Z]\^?\d*\s*[-+]\s*)+\d*[a-zA-Z]?\^?\d*)\)/g, '$$($1)$$');
   
   return str;
 }
