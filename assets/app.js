@@ -243,29 +243,46 @@ function isPolynomialEqual(studentTerms, keyTerms) {
 function cleanMathString(str) {
   if (!str) return "";
   
-  // 1. Fix exact OCR mojibake
-  str = str.replace(/A\ufffd/g, '^2');
+  // 1. Fix exact OCR mojibake using Unicode escapes to prevent encoding corruption
+  str = str.replace(/A\uFFFD/g, '^2');
   str = str.replace(/A3/g, '^3');
   str = str.replace(/xA/g, 'x^2');
-  str = str.replace(/x\ufffd['´`]/g, 'x^4');
-  str = str.replace(/x\ufffd\?['´`]/g, 'x^4');
-  str = str.replace(/x\ufffd/g, 'x^5'); 
   
-  // Specific catches for rendering artifacts (Soal 16 and 27)
-  str = str.replace(/xâ\ufffd´/g, 'x^4');
-  str = str.replace(/xâ\ufffdµ/g, 'x^5');
-  str = str.replace(/xâ\ufffd/g, 'x^4');
-  str = str.replace(/x[â\ufffd]+[´'`]/g, 'x^4');
-  str = str.replace(/x[â\ufffd]+µ/g, 'x^5'); 
-  str = str.replace(/Â²/g, '^2');
-  str = str.replace(/Â³/g, '^3');
-  str = str.replace(/â\ufffd\ufffd/g, '^4');
-  str = str.replace(/â\ufffd/g, '^4');
-  str = str.replace(/â ´/g, '^4');
-  str = str.replace(/A1\/,"A/g, '1/x^2');
+  // Fix â\ufffd... patterns (UTF-8 superscripts read as ISO-8859-1)
+  str = str.replace(/\u00E2\uFFFD\u00B4/g, '^4');
+  str = str.replace(/\u00E2\uFFFD\u00B5/g, '^5');
+  str = str.replace(/\u00E2\uFFFD\u00B6/g, '^6');
+  str = str.replace(/\u00E2\uFFFD\u00B7/g, '^7');
+  str = str.replace(/\u00E2\uFFFD\u00B8/g, '^8');
+  str = str.replace(/\u00E2\uFFFD\u00B9/g, '^9');
+  
+  // Generic fallback if â is missing
+  str = str.replace(/x\uFFFD\u00B4/g, 'x^4');
+  str = str.replace(/x\uFFFD\u00B5/g, 'x^5');
+  str = str.replace(/x\uFFFD\u00B6/g, 'x^6');
+  str = str.replace(/x\uFFFD\u00B7/g, 'x^7');
+  str = str.replace(/x\uFFFD\u00B8/g, 'x^8');
+  str = str.replace(/x\uFFFD\u00B9/g, 'x^9');
+  
+  // Generic fallback if \ufffd is replaced by something else
+  str = str.replace(/\u00E2.\u00B4/g, '^4');
+  str = str.replace(/\u00E2.\u00B5/g, '^5');
+  str = str.replace(/\u00E2.\u00B6/g, '^6');
+  str = str.replace(/\u00E2.\u00B7/g, '^7');
+  str = str.replace(/\u00E2.\u00B8/g, '^8');
+  str = str.replace(/\u00E2.\u00B9/g, '^9');
+  
+  // Fix specific cases with other quotes instead of acute accent
+  str = str.replace(/x\uFFFD['`]/g, 'x^4');
+  str = str.replace(/x\uFFFD\?['`]/g, 'x^4');
+  str = str.replace(/x\uFFFD/g, 'x^5'); // final fallback
+  
+  // Fix old Â² and Â³
+  str = str.replace(/\u00C2\u00B2/g, '^2'); // Â²
+  str = str.replace(/\u00C2\u00B3/g, '^3'); // Â³
   
   // Strip any remaining unprintable replacements
-  str = str.replace(/\ufffd/g, '');
+  str = str.replace(/\uFFFD/g, '');
   str = str.replace(/\$/g, '');
   
   // 2. Wrap standalone polynomials outside parentheses FIRST to avoid inner wrapping collisions
