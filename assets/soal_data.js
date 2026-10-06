@@ -1,4 +1,4 @@
-﻿// Data Soal Disematkan di Frontend
+// Data Soal Disematkan di Frontend
 // Tergenerate Otomatis
 
 window.BANK_SOAL = {
@@ -9,7 +9,7 @@ window.BANK_SOAL = {
         "pembahasan":  "",
         "poin":  100,
         "level":  "Mudah",
-        "soal":  "Tentukan hasil bagi dan sisa pembagian (xÂ³ + 2xÂ² - 5x - 6) oleh (x - 2).",
+        "soal":  "Tentukan hasil bagi dan sisa pembagian (xÂ³ + 2xÂ² - 5x - 6) oleh $(x - 2)$.",
         "kunci":  [
                       {
                           "pangkat":  "1",
@@ -34,7 +34,7 @@ window.BANK_SOAL = {
         "pembahasan":  "",
         "poin":  100,
         "level":  "Mudah",
-        "soal":  "Tentukan hasil bagi dan sisa pembagian (2xâ´ - xÂ³ + 3xÂ² - 5x + 1) oleh (x + 1).",
+        "soal":  "Tentukan hasil bagi dan sisa pembagian (2xâ´ - xÂ³ + 3xÂ² - 5x + 1) oleh $(x + 1)$.",
         "kunci":  [
                       {
                           "pangkat":  "1",
@@ -64,7 +64,7 @@ window.BANK_SOAL = {
         "pembahasan":  "",
         "poin":  100,
         "level":  "Mudah",
-        "soal":  "Tentukan hasil bagi dan sisa pembagian (3xâ´ - 2xÂ³ + xÂ² + 4x - 5) oleh (x - 1).",
+        "soal":  "Tentukan hasil bagi dan sisa pembagian (3xâ´ - 2xÂ³ + xÂ² + 4x - 5) oleh $(x - 1)$.",
         "kunci":  [
                       {
                           "pangkat":  "1",
@@ -94,7 +94,7 @@ window.BANK_SOAL = {
         "pembahasan":  "",
         "poin":  100,
         "level":  "Mudah",
-        "soal":  "Kontekstual: Volume sebuah balok dimodelkan oleh V(x) = xÂ³ + 5xÂ² + 8x + 4. Jika salah satu dimensinya adalah (x + 1), tentukan hasil pembagian V(x) oleh (x + 1).",
+        "soal":  "Kontekstual: Volume sebuah balok dimodelkan oleh $V(x)$ = xÂ³ + 5xÂ² + 8x + 4. Jika salah satu dimensinya adalah $(x + 1)$, tentukan hasil pembagian $V(x)$ oleh $(x + 1)$.",
         "kunci":  [
                       {
                           "pangkat":  "1",
@@ -139,7 +139,7 @@ window.BANK_SOAL = {
         "pembahasan":  "",
         "poin":  100,
         "level":  "Mudah",
-        "soal":  "Tentukan hasil bagi pembagian (4xÂ³ + 4xÂ² - x - 1) oleh (2x + 1).",
+        "soal":  "Tentukan hasil bagi pembagian (4xÂ³ + 4xÂ² - x - 1) oleh $(2x + 1)$.",
         "kunci":  [
                       {
                           "pangkat":  "1",
@@ -164,7 +164,7 @@ window.BANK_SOAL = {
         "pembahasan":  "",
         "poin":  100,
         "level":  "Mudah",
-        "soal":  "Tentukan hasil bagi dan sisa pembagian (6xÂ³ + 7xÂ² - 9x - 10) oleh (x + 2).\r Hasil bagi 6xÂ² - 5x + 1, sisa 0.\r No.\r Soal",
+        "soal":  "Tentukan hasil bagi dan sisa pembagian (6xÂ³ + 7xÂ² - 9x - 10) oleh $(x + 2)$.\r Hasil bagi 6xÂ² - 5x + 1, sisa 0.\r No.\r Soal",
         "kunci":  [
 
                   ]
@@ -175,7 +175,7 @@ window.BANK_SOAL = {
         "pembahasan":  "",
         "poin":  100,
         "level":  "Mudah",
-        "soal":  "Tentukan sisa pembagian P(x) = xÂ³ - 4x + 1 oleh (x - 2).",
+        "soal":  "Tentukan sisa pembagian $P(x)$ = xÂ³ - 4x + 1 oleh $(x - 2)$.",
         "kunci":  [
                       {
                           "pangkat":  0,
@@ -190,7 +190,7 @@ window.BANK_SOAL = {
         "pembahasan":  "",
         "poin":  100,
         "level":  "Mudah",
-        "soal":  "Tentukan sisa pembagian P(x) = 2xÂ³ + xÂ² - 5x + 4 oleh (x + 1).",
+        "soal":  "Tentukan sisa pembagian $P(x)$ = 2xÂ³ + xÂ² - 5x + 4 oleh $(x + 1)$.",
         "kunci":  [
                       {
                           "pangkat":  0,
@@ -205,7 +205,7 @@ window.BANK_SOAL = {
         "pembahasan":  "",
         "poin":  100,
         "level":  "Mudah",
-        "soal":  "Tentukan sisa pembagian P(x) = 3xâ´ - 2xÂ² + 7x - 1 oleh (x - 3).",
+        "soal":  "Tentukan sisa pembagian $P(x)$ = 3xâ´ - 2xÂ² + 7x - 1 oleh $(x - 3)$.",
         "kunci":  [
                       {
                           "pangkat":  0,
@@ -275,7 +275,7 @@ window.BANK_SOAL = {
         "pembahasan":  "",
         "poin":  200,
         "level":  "Menengah",
-        "soal":  "Tentukan hasil bagi dan sisa pembagian (3xâ´ - 5xÂ³ + 2xÂ² + 7x - 4) oleh (x - 2).",
+        "soal":  "Tentukan hasil bagi dan sisa pembagian (3xâ´ - 5xÂ³ + 2xÂ² + 7x - 4) oleh $(x - 2)$.",
         "kunci":  [
                       {
                           "pangkat":  "1",
@@ -350,7 +350,7 @@ window.BANK_SOAL = {
         "pembahasan":  "",
         "poin":  200,
         "level":  "Menengah",
-        "soal":  "Tentukan hasil bagi pembagian (xâ´ - 2xÂ² + 1) oleh (x - 1).",
+        "soal":  "Tentukan hasil bagi pembagian (xâ´ - 2xÂ² + 1) oleh $(x - 1)$.",
         "kunci":  [
                       {
                           "pangkat":  "1",
@@ -380,7 +380,7 @@ window.BANK_SOAL = {
         "pembahasan":  "",
         "poin":  200,
         "level":  "Menengah",
-        "soal":  "Tentukan hasil bagi dan sisa pembagian (2xâ´ + 5xÂ³ + 7xÂ² + 4x + 3) oleh (x + 2).",
+        "soal":  "Tentukan hasil bagi dan sisa pembagian (2xâ´ + 5xÂ³ + 7xÂ² + 4x + 3) oleh $(x + 2)$.",
         "kunci":  [
                       {
                           "pangkat":  "1",
@@ -410,7 +410,7 @@ window.BANK_SOAL = {
         "pembahasan":  "",
         "poin":  200,
         "level":  "Menengah",
-        "soal":  "Kontekstual: Model volume suatu benda diberikan oleh V(x) = xâ´ + 4xÂ³ + 3xÂ² + 2x + 8. Jika salah satu faktor dimensinya (x + 2), tentukan hasil pembagian V(x) oleh (x + 2).\r Hasil bagi xÂ³ + 2xÂ² - x + 4, sisa 0.\r No.\r Soal",
+        "soal":  "Kontekstual: Model volume suatu benda diberikan oleh $V(x)$ = xâ´ + 4xÂ³ + 3xÂ² + 2x + 8. Jika salah satu faktor dimensinya $(x + 2)$, tentukan hasil pembagian $V(x)$ oleh $(x + 2)$.\r Hasil bagi xÂ³ + 2xÂ² - x + 4, sisa 0.\r No.\r Soal",
         "kunci":  [
 
                   ]
@@ -421,7 +421,7 @@ window.BANK_SOAL = {
         "pembahasan":  "",
         "poin":  200,
         "level":  "Menengah",
-        "soal":  "Tentukan sisa pembagian P(x) = 2xâ´ - 3xÂ³ + xÂ² + 5x - 7 oleh (x - 2).",
+        "soal":  "Tentukan sisa pembagian $P(x)$ = 2xâ´ - 3xÂ³ + xÂ² + 5x - 7 oleh $(x - 2)$.",
         "kunci":  [
                       {
                           "pangkat":  0,
@@ -436,7 +436,7 @@ window.BANK_SOAL = {
         "pembahasan":  "",
         "poin":  200,
         "level":  "Menengah",
-        "soal":  "Tentukan sisa pembagian P(x) = xâµ - 2xâ´ + 3xÂ² - x + 4 oleh (x + 3).",
+        "soal":  "Tentukan sisa pembagian $P(x)$ = xâµ - 2xâ´ + 3xÂ² - x + 4 oleh $(x + 3)$.",
         "kunci":  [
                       {
                           "pangkat":  0,
@@ -511,7 +511,7 @@ window.BANK_SOAL = {
         "pembahasan":  "",
         "poin":  300,
         "level":  "Sulit",
-        "soal":  "Diberikan P(x) = xâ´ + axÂ³ + (a - 3)xÂ² - ax + 3. Tentukan a agar P(x) habis dibagi (xÂ² - 1), kemudian tentukan hasil baginya.\r a = -1;",
+        "soal":  "Diberikan $P(x)$ = xâ´ + axÂ³ + $(a - 3)$xÂ² - ax + 3. Tentukan a agar $P(x)$ habis dibagi (xÂ² - 1), kemudian tentukan hasil baginya.\r a = -1;",
         "kunci":  [
                       {
                           "pangkat":  "1",
@@ -536,7 +536,7 @@ window.BANK_SOAL = {
         "pembahasan":  "",
         "poin":  300,
         "level":  "Sulit",
-        "soal":  "Diketahui suatu polinom dibagi (xÂ² - 3x + 2) menghasilkan hasil bagi (2xÂ³ + xÂ² - 4x + 5) dan sisa (7x - 3). Tentukan polinom semula.",
+        "soal":  "Diketahui suatu polinom dibagi (xÂ² - 3x + 2) menghasilkan hasil bagi (2xÂ³ + xÂ² - 4x + 5) dan sisa $(7x - 3)$. Tentukan polinom semula.",
         "kunci":  [
                       {
                           "pangkat":  "1",
@@ -576,7 +576,7 @@ window.BANK_SOAL = {
         "pembahasan":  "",
         "poin":  300,
         "level":  "Sulit",
-        "soal":  "Kontekstual: Model volume suatu benda adalah V(x) = xâµ - xâ´ + xÂ³ - xÂ² + x + 5. Salah satu dimensinya adalah (x + 1). Tentukan hasil pembagian V(x) oleh (x + 1).",
+        "soal":  "Kontekstual: Model volume suatu benda adalah $V(x)$ = xâµ - xâ´ + xÂ³ - xÂ² + x + 5. Salah satu dimensinya adalah $(x + 1)$. Tentukan hasil pembagian $V(x)$ oleh $(x + 1)$.",
         "kunci":  [
                       {
                           "pangkat":  "1",
@@ -641,7 +641,7 @@ window.BANK_SOAL = {
         "pembahasan":  "",
         "poin":  300,
         "level":  "Sulit",
-        "soal":  "Diketahui P(x) = xâµ + axâ´ + bxÂ³ - 3xÂ² + 4x - 5. Jika sisa pembagian P(x) oleh (xÂ² - 1) adalah 3x + 7, tentukan a dan b.\r a = 15, b = -2\r No.\r Soal",
+        "soal":  "Diketahui $P(x)$ = xâµ + axâ´ + bxÂ³ - 3xÂ² + 4x - 5. Jika sisa pembagian $P(x)$ oleh (xÂ² - 1) adalah 3x + 7, tentukan a dan b.\r a = 15, b = -2\r No.\r Soal",
         "kunci":  [
 
                   ]
@@ -652,7 +652,7 @@ window.BANK_SOAL = {
         "pembahasan":  "",
         "poin":  300,
         "level":  "Sulit",
-        "soal":  "Tentukan sisa pembagian P(x) = xâ¸ - 3xâ¶ + 2xÂ³ - 7 oleh (x - 1).",
+        "soal":  "Tentukan sisa pembagian $P(x)$ = xâ¸ - 3xâ¶ + 2xÂ³ - 7 oleh $(x - 1)$.",
         "kunci":  [
                       {
                           "pangkat":  0,
@@ -667,7 +667,7 @@ window.BANK_SOAL = {
         "pembahasan":  "",
         "poin":  300,
         "level":  "Sulit",
-        "soal":  "Diketahui P(x) = xâ´ + axÂ³ + bxÂ² + 2x + 1. Jika sisa pembagian oleh (x - 1) adalah 5 dan oleh (x + 1) adalah -3, tentukan a dan b.",
+        "soal":  "Diketahui $P(x)$ = xâ´ + axÂ³ + bxÂ² + 2x + 1. Jika sisa pembagian oleh $(x - 1)$ adalah 5 dan oleh $(x + 1)$ adalah -3, tentukan a dan b.",
         "kunci":  [
 
                   ]
@@ -678,7 +678,7 @@ window.BANK_SOAL = {
         "pembahasan":  "",
         "poin":  300,
         "level":  "Sulit",
-        "soal":  "Tentukan sisa pembagian P(x) = xâ´ - 2xÂ³ + 3xÂ² - x + 5 oleh (x - 2)(x + 1).",
+        "soal":  "Tentukan sisa pembagian $P(x)$ = xâ´ - 2xÂ³ + 3xÂ² - x + 5 oleh $(x - 2)$$(x + 1)$.",
         "kunci":  [
                       {
                           "pangkat":  "1",
@@ -700,7 +700,7 @@ window.BANK_SOAL = {
         "pembahasan":  "",
         "poin":  100,
         "level":  "Mudah",
-        "soal":  "Tentukan sisa pembagian P(x) = 4xÂ³ - 3x + 5 oleh (2x - 5).",
+        "soal":  "Tentukan sisa pembagian $P(x)$ = 4xÂ³ - 3x + 5 oleh $(2x - 5)$.",
         "kunci":  [
                       {
                           "pangkat":  0,
@@ -715,7 +715,7 @@ window.BANK_SOAL = {
         "pembahasan":  "",
         "poin":  100,
         "level":  "Mudah",
-        "soal":  "Tentukan sisa pembagian P(x) = xâ´ - 2xÂ³ + x + 6 oleh (x + 2).",
+        "soal":  "Tentukan sisa pembagian $P(x)$ = xâ´ - 2xÂ³ + x + 6 oleh $(x + 2)$.",
         "kunci":  [
                       {
                           "pangkat":  0,
@@ -730,7 +730,7 @@ window.BANK_SOAL = {
         "pembahasan":  "",
         "poin":  100,
         "level":  "Mudah",
-        "soal":  "Kontekstual: Keuntungan sebuah usaha kecil, dalam ribuan rupiah, dimodelkan P(x) = xÂ³ - 4x + 7, dengan x menyatakan banyak paket yang terjual. Tentukan sisa pembagian P(x) oleh (x - 2).",
+        "soal":  "Kontekstual: Keuntungan sebuah usaha kecil, dalam ribuan rupiah, dimodelkan $P(x)$ = xÂ³ - 4x + 7, dengan x menyatakan banyak paket yang terjual. Tentukan sisa pembagian $P(x)$ oleh $(x - 2)$.",
         "kunci":  [
                       {
                           "pangkat":  0,
@@ -745,7 +745,7 @@ window.BANK_SOAL = {
         "pembahasan":  "",
         "poin":  100,
         "level":  "Mudah",
-        "soal":  "Tentukan sisa pembagian P(x) = 2xâ´ - xÂ² + 3 oleh (x - 2).\r 31\r No.\r Soal",
+        "soal":  "Tentukan sisa pembagian $P(x)$ = 2xâ´ - xÂ² + 3 oleh $(x - 2)$.\r 31\r No.\r Soal",
         "kunci":  [
 
                   ]
@@ -756,7 +756,7 @@ window.BANK_SOAL = {
         "pembahasan":  "",
         "poin":  100,
         "level":  "Mudah",
-        "soal":  "Apakah (x - 1) merupakan faktor dari P(x) = xÂ³ - 5xÂ² + 8x - 4  Beri alasan.",
+        "soal":  "^2pakah $(x - 1)$ merupakan faktor dari $P(x)$ = xÂ³ - 5xÂ² + 8x - 4^5 Beri alasan.",
         "kunci":  [
 
                   ]
@@ -767,23 +767,28 @@ window.BANK_SOAL = {
         "pembahasan":  "",
         "poin":  100,
         "level":  "Mudah",
-        "soal":  "Apakah (x + 2) merupakan faktor dari P(x) = 2xÂ³ + xÂ² - 8x - 4  Beri alasan.",
+        "soal":  "^2pakah $(x + 2)$ merupakan faktor dari $P(x)$ = 2xÂ³ + xÂ² - 8x - 4^5 Beri alasan.",
         "kunci":  [
 
                   ]
     },
     {
         "id":  7,
-        "kunciTeksAsli":  "(x - 2)(xÂ² + 2x + 4)",
+        "kunciTeksAsli":  "$(x - 2)$(xÂ² + 2x + 4)",
         "pembahasan":  "",
         "poin":  100,
         "level":  "Mudah",
         "soal":  "Faktorkan xÂ³ - 8 menggunakan Teorema Faktor.",
         "kunci":  [
                       {
-                          "pangkat":  0,
+                          "pangkat":  "1",
+                          "koef":  "1",
+                          "var":  "x"
+                      },
+                      {
+                          "pangkat":  "1",
                           "koef":  "-2",
-                          "var":  ""
+                          "var":  "x"
                       },
                       {
                           "pangkat":  "1",
@@ -803,18 +808,18 @@ window.BANK_SOAL = {
         "pembahasan":  "",
         "poin":  100,
         "level":  "Mudah",
-        "soal":  "Tentukan k agar (x + 1) menjadi faktor dari P(x) = xÂ³ + kxÂ² - 4x - 4.",
+        "soal":  "Tentukan k agar $(x + 1)$ menjadi faktor dari $P(x)$ = xÂ³ + kxÂ² - 4x - 4.",
         "kunci":  [
 
                   ]
     },
     {
         "id":  9,
-        "kunciTeksAsli":  "xÂ² - 9 = (x - 3)(x + 3)",
+        "kunciTeksAsli":  "xÂ² - 9 = $(x - 3)$$(x + 3)$",
         "pembahasan":  "",
         "poin":  100,
         "level":  "Mudah",
-        "soal":  "Tunjukkan bahwa (x - 3) merupakan faktor dari xÂ² - 9, kemudian tentukan faktor lainnya.",
+        "soal":  "Tunjukkan bahwa $(x - 3)$ merupakan faktor dari xÂ² - 9, kemudian tentukan faktor lainnya.",
         "kunci":  [
                       {
                           "pangkat":  "1",
@@ -827,9 +832,9 @@ window.BANK_SOAL = {
                           "var":  ""
                       },
                       {
-                          "pangkat":  0,
+                          "pangkat":  "1",
                           "koef":  "-3",
-                          "var":  ""
+                          "var":  "x"
                       },
                       {
                           "pangkat":  0,
@@ -840,26 +845,31 @@ window.BANK_SOAL = {
     },
     {
         "id":  10,
-        "kunciTeksAsli":  "(x - 1)(x + 1)(x - 2)(x + 2)",
+        "kunciTeksAsli":  "$(x - 1)$$(x + 1)$$(x - 2)$$(x + 2)$",
         "pembahasan":  "",
         "poin":  100,
         "level":  "Mudah",
-        "soal":  "Tentukan seluruh faktor linear dari P(x) = xâ´ - 5xÂ² + 4.",
+        "soal":  "Tentukan seluruh faktor linear dari $P(x)$ = xâ´ - 5xÂ² + 4.",
         "kunci":  [
                       {
-                          "pangkat":  0,
+                          "pangkat":  "1",
+                          "koef":  "1",
+                          "var":  "x"
+                      },
+                      {
+                          "pangkat":  "1",
                           "koef":  "-1",
-                          "var":  ""
+                          "var":  "x"
                       },
                       {
-                          "pangkat":  0,
+                          "pangkat":  "1",
                           "koef":  "+1",
-                          "var":  ""
+                          "var":  "x"
                       },
                       {
-                          "pangkat":  0,
+                          "pangkat":  "1",
                           "koef":  "-2",
-                          "var":  ""
+                          "var":  "x"
                       },
                       {
                           "pangkat":  0,
@@ -874,7 +884,7 @@ window.BANK_SOAL = {
         "pembahasan":  "",
         "poin":  200,
         "level":  "Menengah",
-        "soal":  "Tentukan sisa pembagian P(x) = 8xÂ³ + 4xÂ² - 6x + 3 oleh (2x - 1).",
+        "soal":  "Tentukan sisa pembagian $P(x)$ = 8xÂ³ + 4xÂ² - 6x + 3 oleh $(2x - 1)$.",
         "kunci":  [
 
                   ]
@@ -885,7 +895,7 @@ window.BANK_SOAL = {
         "pembahasan":  "",
         "poin":  200,
         "level":  "Menengah",
-        "soal":  "Tentukan sisa pembagian P(x) = xâ¶ - 1 oleh (x - 1).",
+        "soal":  "Tentukan sisa pembagian $P(x)$ = xâ¶ - 1 oleh $(x - 1)$.",
         "kunci":  [
                       {
                           "pangkat":  0,
@@ -900,7 +910,7 @@ window.BANK_SOAL = {
         "pembahasan":  "",
         "poin":  200,
         "level":  "Menengah",
-        "soal":  "Tentukan sisa pembagian P(x) = 2xâµ + 3xâ´ - xÂ² + 7 oleh (x + 2).",
+        "soal":  "Tentukan sisa pembagian $P(x)$ = 2xâµ + 3xâ´ - xÂ² + 7 oleh $(x + 2)$.",
         "kunci":  [
                       {
                           "pangkat":  0,
@@ -915,7 +925,7 @@ window.BANK_SOAL = {
         "pembahasan":  "",
         "poin":  200,
         "level":  "Menengah",
-        "soal":  "Kontekstual: Pendapatan suatu usaha dimodelkan R(n) = nâ´ - 5nÂ² + 2n + 10, dengan n menyatakan jumlah produk. Tentukan sisa pembagian R(n) oleh (n - 3).",
+        "soal":  "Kontekstual: Pendapatan suatu usaha dimodelkan $R(n)$ = nâ´ - 5nÂ² + 2n + 10, dengan n menyatakan jumlah produk. Tentukan sisa pembagian $R(n)$ oleh $(n - 3)$.",
         "kunci":  [
                       {
                           "pangkat":  0,
@@ -930,7 +940,7 @@ window.BANK_SOAL = {
         "pembahasan":  "",
         "poin":  200,
         "level":  "Menengah",
-        "soal":  "10\r Tentukan sisa pembagian P(x) = xâµ - 2xâ´ + 3xÂ² - x + 4 oleh (x + 3).\r -293\r 11\r Tentukan sisa pembagian P(x) = 8xÂ³ + 4xÂ² - 6x + 3 oleh (2x - 1).\r â·/â‚‚ (atau 3,5)\r 12\r Tentukan sisa pembagian P(x) = xâ¶ - 1 oleh (x - 1).\r 0\r 13\r Tentukan sisa pembagian P(x) = 2xâµ + 3xâ´ - xÂ² + 7 oleh (x + 2).\r -13\r 14\r Kontekstual: Pendapatan suatu usaha dimodelkan R(n) = nâ´ - 5nÂ² + 2n + 10, dengan n menyatakan jumlah produk. Tentukan sisa pembagian R(n) oleh (n - 3).\r 46\r 15\r Tentukan sisa pembagian P(x) = xâ´ - 4xÂ³ + 6xÂ² - 4x + 1 oleh (x - 2).\r 1\r No.\r Soal",
+        "soal":  "10\r Tentukan sisa pembagian $P(x)$ = xâµ - 2xâ´ + 3xÂ² - x + 4 oleh $(x + 3)$.\r -293\r 11\r Tentukan sisa pembagian $P(x)$ = 8xÂ³ + 4xÂ² - 6x + 3 oleh $(2x - 1)$.\r â·/â‚‚ (atau 3,5)\r 12\r Tentukan sisa pembagian $P(x)$ = xâ¶ - 1 oleh $(x - 1)$.\r 0\r 13\r Tentukan sisa pembagian $P(x)$ = 2xâµ + 3xâ´ - xÂ² + 7 oleh $(x + 2)$.\r -13\r 14\r Kontekstual: Pendapatan suatu usaha dimodelkan $R(n)$ = nâ´ - 5nÂ² + 2n + 10, dengan n menyatakan jumlah produk. Tentukan sisa pembagian $R(n)$ oleh $(n - 3)$.\r 46\r 15\r Tentukan sisa pembagian $P(x)$ = xâ´ - 4xÂ³ + 6xÂ² - 4x + 1 oleh $(x - 2)$.\r 1\r No.\r Soal",
         "kunci":  [
 
                   ]
@@ -941,7 +951,7 @@ window.BANK_SOAL = {
         "pembahasan":  "",
         "poin":  200,
         "level":  "Menengah",
-        "soal":  "Tentukan apakah (x - 2) merupakan faktor dari P(x) = xâµ - 3xâ´ - 4xÂ³ + 12xÂ² + x - 2.",
+        "soal":  "Tentukan apakah $(x - 2)$ merupakan faktor dari $P(x)$ = xâµ - 3xâ´ - 4xÂ³ + 12xÂ² + x - 2.",
         "kunci":  [
 
                   ]
@@ -952,7 +962,7 @@ window.BANK_SOAL = {
         "pembahasan":  "",
         "poin":  200,
         "level":  "Menengah",
-        "soal":  "Tentukan k agar (x + 1) menjadi faktor dari P(x) = xÂ³ + kxÂ² - 4x - 4.",
+        "soal":  "Tentukan k agar $(x + 1)$ menjadi faktor dari $P(x)$ = xÂ³ + kxÂ² - 4x - 4.",
         "kunci":  [
 
                   ]
@@ -963,28 +973,33 @@ window.BANK_SOAL = {
         "pembahasan":  "",
         "poin":  200,
         "level":  "Menengah",
-        "soal":  "Diketahui (x - 2) dan (x + 1) merupakan faktor dari P(x) = xÂ³ + axÂ² + bx - 6. Tentukan a dan b.",
+        "soal":  "Diketahui $(x - 2)$ dan $(x + 1)$ merupakan faktor dari $P(x)$ = xÂ³ + axÂ² + bx - 6. Tentukan a dan b.",
         "kunci":  [
 
                   ]
     },
     {
         "id":  19,
-        "kunciTeksAsli":  "(x - 1)(x - 2)(x - 3)",
+        "kunciTeksAsli":  "$(x - 1)$$(x - 2)$$(x - 3)$",
         "pembahasan":  "",
         "poin":  200,
         "level":  "Menengah",
         "soal":  "Faktorkan xÂ³ - 6xÂ² + 11x - 6.",
         "kunci":  [
                       {
-                          "pangkat":  0,
-                          "koef":  "-1",
-                          "var":  ""
+                          "pangkat":  "1",
+                          "koef":  "1",
+                          "var":  "x"
                       },
                       {
-                          "pangkat":  0,
+                          "pangkat":  "1",
+                          "koef":  "-1",
+                          "var":  "x"
+                      },
+                      {
+                          "pangkat":  "1",
                           "koef":  "-2",
-                          "var":  ""
+                          "var":  "x"
                       },
                       {
                           "pangkat":  0,
@@ -995,21 +1010,26 @@ window.BANK_SOAL = {
     },
     {
         "id":  20,
-        "kunciTeksAsli":  "(x - 2)(2x - 3)(x + 2)",
+        "kunciTeksAsli":  "$(x - 2)$$(2x - 3)$$(x + 2)$",
         "pembahasan":  "",
         "poin":  200,
         "level":  "Menengah",
-        "soal":  "Faktorkan 2xÂ³ - 3xÂ² - 8x + 12, jika diketahui (x - 2) merupakan salah satu faktornya.",
+        "soal":  "Faktorkan 2xÂ³ - 3xÂ² - 8x + 12, jika diketahui $(x - 2)$ merupakan salah satu faktornya.",
         "kunci":  [
                       {
-                          "pangkat":  0,
-                          "koef":  "-2",
-                          "var":  ""
+                          "pangkat":  "1",
+                          "koef":  "1",
+                          "var":  "x"
                       },
                       {
-                          "pangkat":  0,
+                          "pangkat":  "1",
+                          "koef":  "-22",
+                          "var":  "x"
+                      },
+                      {
+                          "pangkat":  "1",
                           "koef":  "-3",
-                          "var":  ""
+                          "var":  "x"
                       },
                       {
                           "pangkat":  0,
@@ -1024,7 +1044,7 @@ window.BANK_SOAL = {
         "pembahasan":  "",
         "poin":  300,
         "level":  "Sulit",
-        "soal":  "Diketahui P(x) = 2xÂ² + bx + c. Jika sisa pembagian oleh (x - 2) adalah 7, sedangkan oleh (x + 1) adalah -5, tentukan b dan c.",
+        "soal":  "Diketahui $P(x)$ = 2xÂ² + bx + c. Jika sisa pembagian oleh $(x - 2)$ adalah 7, sedangkan oleh $(x + 1)$ adalah -5, tentukan b dan c.",
         "kunci":  [
 
                   ]
@@ -1035,7 +1055,7 @@ window.BANK_SOAL = {
         "pembahasan":  "",
         "poin":  300,
         "level":  "Sulit",
-        "soal":  "Kontekstual: Pendapatan sebuah perusahaan dimodelkan R(n) = nâµ - 2nÂ³ + 3n + 10. Tentukan sisa pembagian R(n) oleh (n - 5), lalu tafsirkan hasilnya sebagai nilai pendapatan pada n = 5.",
+        "soal":  "Kontekstual: Pendapatan sebuah perusahaan dimodelkan $R(n)$ = nâµ - 2nÂ³ + 3n + 10. Tentukan sisa pembagian $R(n)$ oleh $(n - 5)$, lalu tafsirkan hasilnya sebagai nilai pendapatan pada n = 5.",
         "kunci":  [
 
                   ]
@@ -1046,7 +1066,7 @@ window.BANK_SOAL = {
         "pembahasan":  "",
         "poin":  300,
         "level":  "Sulit",
-        "soal":  "Tentukan nilai k agar P(x) = xâ´ - 3xÂ³ + kxÂ² + 5x - 6 habis dibagi (x - 2).",
+        "soal":  "Tentukan nilai k agar $P(x)$ = xâ´ - 3xÂ³ + kxÂ² + 5x - 6 habis dibagi $(x - 2)$.",
         "kunci":  [
 
                   ]
@@ -1057,7 +1077,7 @@ window.BANK_SOAL = {
         "pembahasan":  "",
         "poin":  300,
         "level":  "Sulit",
-        "soal":  "Tentukan sisa pembagian P(x) = xâ¸ + 2xâµ - 3xÂ³ + 4 oleh (xÂ² - 1).",
+        "soal":  "Tentukan sisa pembagian $P(x)$ = xâ¸ + 2xâµ - 3xÂ³ + 4 oleh (xÂ² - 1).",
         "kunci":  [
                       {
                           "pangkat":  "1",
@@ -1077,7 +1097,7 @@ window.BANK_SOAL = {
         "pembahasan":  "",
         "poin":  300,
         "level":  "Sulit",
-        "soal":  "Diketahui P(x) = xâ¶ + axÂ³ + b. Jika sisa pembagian oleh (x - 1) adalah 5 dan oleh (x + 1) adalah 1, tentukan nilai a dan b\r a = 2, b = 2;\r No.\r Soal",
+        "soal":  "Diketahui $P(x)$ = xâ¶ + axÂ³ + b. Jika sisa pembagian oleh $(x - 1)$ adalah 5 dan oleh $(x + 1)$ adalah 1, tentukan nilai a dan b\r a = 2, b = 2;\r No.\r Soal",
         "kunci":  [
 
                   ]
@@ -1088,19 +1108,24 @@ window.BANK_SOAL = {
         "pembahasan":  "",
         "poin":  300,
         "level":  "Sulit",
-        "soal":  "Diketahui P(x) = xâ´ + axÂ³ + bxÂ² - 4x + 4. Jika (x - 1) dan (x + 2) merupakan faktor P(x), tentukan a dan b.",
+        "soal":  "Diketahui $P(x)$ = xâ´ + axÂ³ + bxÂ² - 4x + 4. Jika $(x - 1)$ dan $(x + 2)$ merupakan faktor $P(x)$, tentukan a dan b.",
         "kunci":  [
 
                   ]
     },
     {
         "id":  27,
-        "kunciTeksAsli":  "(x - 2)Â³",
+        "kunciTeksAsli":  "$(x - 2)$Â³",
         "pembahasan":  "",
         "poin":  300,
         "level":  "Sulit",
-        "soal":  "Diketahui P(x) = xÂ³ + axÂ² + bx - 8 mempunyai faktor (x - 2) dengan kelipatan (multiplicity) 2. Tentukan a, b, dan faktorkan P(x).\r a = -6, b = 12;",
+        "soal":  "Diketahui $P(x)$ = xÂ³ + axÂ² + bx - 8 mempunyai faktor $(x - 2)$ dengan kelipatan (multiplicity) 2. Tentukan a, b, dan faktorkan $P(x)$.\r a = -6, b = 12;",
         "kunci":  [
+                      {
+                          "pangkat":  "1",
+                          "koef":  "1",
+                          "var":  "x"
+                      },
                       {
                           "pangkat":  0,
                           "koef":  "-2",
@@ -1110,21 +1135,26 @@ window.BANK_SOAL = {
     },
     {
         "id":  28,
-        "kunciTeksAsli":  "(x - 2)(2x - 3)(x + 2)",
+        "kunciTeksAsli":  "$(x - 2)$$(2x - 3)$$(x + 2)$",
         "pembahasan":  "",
         "poin":  300,
         "level":  "Sulit",
-        "soal":  "Faktorkan P(x) = 2xÂ³ - 3xÂ² - 8x + 12 menggunakan Teorema Faktor.",
+        "soal":  "Faktorkan $P(x)$ = 2xÂ³ - 3xÂ² - 8x + 12 menggunakan Teorema Faktor.",
         "kunci":  [
                       {
-                          "pangkat":  0,
-                          "koef":  "-2",
-                          "var":  ""
+                          "pangkat":  "1",
+                          "koef":  "1",
+                          "var":  "x"
                       },
                       {
-                          "pangkat":  0,
+                          "pangkat":  "1",
+                          "koef":  "-22",
+                          "var":  "x"
+                      },
+                      {
+                          "pangkat":  "1",
                           "koef":  "-3",
-                          "var":  ""
+                          "var":  "x"
                       },
                       {
                           "pangkat":  0,
@@ -1139,7 +1169,7 @@ window.BANK_SOAL = {
         "pembahasan":  "",
         "poin":  300,
         "level":  "Sulit",
-        "soal":  "Tentukan polinom berkoefisien utama 2 yang memiliki akar 1, 2, dan 3. Tuliskan dalam bentuk terfaktor dan bentuk standar.\r 2(x - 1)(x - 2)(x - 3)",
+        "soal":  "Tentukan polinom berkoefisien utama 2 yang memiliki akar 1, 2, dan 3. Tuliskan dalam bentuk terfaktor dan bentuk standar.\r 2$(x - 1)$$(x - 2)$$(x - 3)$",
         "kunci":  [
                       {
                           "pangkat":  "1",
@@ -1164,7 +1194,7 @@ window.BANK_SOAL = {
         "pembahasan":  "",
         "poin":  300,
         "level":  "Sulit",
-        "soal":  "Kontekstual: Volume sebuah wadah dimodelkan V(x) = xÂ³ - 7xÂ² + 14x - 8. Gunakan Teorema Faktor untuk menentukan faktor dimensinya, kemudian tentukan volume saat x = 6.\r V(x) = (x - 1)(x - 2)(x - 4);",
+        "soal":  "Kontekstual: Volume sebuah wadah dimodelkan $V(x)$ = xÂ³ - 7xÂ² + 14x - 8. Gunakan Teorema Faktor untuk menentukan faktor dimensinya, kemudian tentukan volume saat x = 6.\r $V(x)$ = $(x - 1)$$(x - 2)$$(x - 4)$;",
         "kunci":  [
 
                   ]
@@ -1173,21 +1203,26 @@ window.BANK_SOAL = {
   "3": [
     {
         "id":  1,
-        "kunciTeksAsli":  "(x - 4)(x - 1)(x + 1)",
+        "kunciTeksAsli":  "$(x - 4)$$(x - 1)$$(x + 1)$",
         "pembahasan":  "",
         "poin":  100,
         "level":  "Mudah",
-        "soal":  "Faktorkan P(x) = xÂ³ - 4xÂ² - x + 4.",
+        "soal":  "Faktorkan $P(x)$ = xÂ³ - 4xÂ² - x + 4.",
         "kunci":  [
                       {
-                          "pangkat":  0,
-                          "koef":  "-4",
-                          "var":  ""
+                          "pangkat":  "1",
+                          "koef":  "1",
+                          "var":  "x"
                       },
                       {
-                          "pangkat":  0,
+                          "pangkat":  "1",
+                          "koef":  "-4",
+                          "var":  "x"
+                      },
+                      {
+                          "pangkat":  "1",
                           "koef":  "-1",
-                          "var":  ""
+                          "var":  "x"
                       },
                       {
                           "pangkat":  0,
@@ -1202,7 +1237,7 @@ window.BANK_SOAL = {
         "pembahasan":  "",
         "poin":  100,
         "level":  "Mudah",
-        "soal":  "Tentukan a agar (x + 2) menjadi faktor dari P(x) = xÂ³ + axÂ² - 4x - 8.\r a = 2\r No.\r Soal",
+        "soal":  "Tentukan a agar $(x + 2)$ menjadi faktor dari $P(x)$ = xÂ³ + axÂ² - 4x - 8.\r a = 2\r No.\r Soal",
         "kunci":  [
 
                   ]
@@ -1213,7 +1248,7 @@ window.BANK_SOAL = {
         "pembahasan":  "",
         "poin":  100,
         "level":  "Mudah",
-        "soal":  "Kembangkan (x + 3)Â².",
+        "soal":  "Kembangkan $(x + 3)$Â².",
         "kunci":  [
                       {
                           "pangkat":  "1",
@@ -1238,7 +1273,7 @@ window.BANK_SOAL = {
         "pembahasan":  "",
         "poin":  100,
         "level":  "Mudah",
-        "soal":  "Kembangkan (2x - 5)Â².",
+        "soal":  "Kembangkan $(2x - 5)$Â².",
         "kunci":  [
                       {
                           "pangkat":  "1",
@@ -1263,7 +1298,7 @@ window.BANK_SOAL = {
         "pembahasan":  "",
         "poin":  100,
         "level":  "Mudah",
-        "soal":  "Sederhanakan (x - 4)(x + 4).",
+        "soal":  "Sederhanakan $(x - 4)$$(x + 4)$.",
         "kunci":  [
                       {
                           "pangkat":  "1",
@@ -1283,7 +1318,7 @@ window.BANK_SOAL = {
         "pembahasan":  "",
         "poin":  100,
         "level":  "Mudah",
-        "soal":  "Sederhanakan (x + 2)Â² - (x - 2)Â².",
+        "soal":  "Sederhanakan $(x + 2)$Â² - $(x - 2)$Â².",
         "kunci":  [
                       {
                           "pangkat":  "1",
@@ -1313,19 +1348,24 @@ window.BANK_SOAL = {
         "pembahasan":  "",
         "poin":  100,
         "level":  "Mudah",
-        "soal":  "Bentuk aljabar yang equivalen dengan (a + b)Â² + (a - b)Â² adalah â€¦",
+        "soal":  "Bentuk aljabar yang equivalen dengan $(a + b)$Â² + $(a - b)$Â² adalah â€¦",
         "kunci":  [
 
                   ]
     },
     {
         "id":  9,
-        "kunciTeksAsli":  "(x + 3)Â²",
+        "kunciTeksAsli":  "$(x + 3)$Â²",
         "pembahasan":  "",
         "poin":  100,
         "level":  "Mudah",
-        "soal":  "28\r Bentuk aljabar yang equivalen dengan (a + b)Â² + (a - b)Â² adalah â€¦\r = 2(aÂ² + bÂ²)\r 29\r Faktorkan xÂ² + 6x + 9 menggunakan identitas kuadrat sempurna.",
+        "soal":  "28\r Bentuk aljabar yang equivalen dengan $(a + b)$Â² + $(a - b)$Â² adalah â€¦\r = 2(aÂ² + bÂ²)\r 29\r Faktorkan xÂ² + 6x + 9 menggunakan identitas kuadrat sempurna.",
         "kunci":  [
+                      {
+                          "pangkat":  "1",
+                          "koef":  "1",
+                          "var":  "x"
+                      },
                       {
                           "pangkat":  0,
                           "koef":  "+3",
@@ -1339,7 +1379,7 @@ window.BANK_SOAL = {
         "pembahasan":  "",
         "poin":  100,
         "level":  "Mudah",
-        "soal":  "Kontekstual: Sebuah taman berbentuk persegi panjang memiliki panjang (x + 5) m dan lebar (x - 5) m. Tuliskan luasnya menggunakan identitas selisih kuadrat, lalu hitung luas ketika x = 12.\r L = (x + 5)(x - 5) = xÂ² - 25;",
+        "soal":  "Kontekstual: Sebuah taman berbentuk persegi panjang memiliki panjang $(x + 5)$ m dan lebar $(x - 5)$ m. Tuliskan luasnya menggunakan identitas selisih kuadrat, lalu hitung luas ketika x = 12.\r L = $(x + 5)$$(x - 5)$ = xÂ² - 25;",
         "kunci":  [
 
                   ]
@@ -1350,7 +1390,7 @@ window.BANK_SOAL = {
         "pembahasan":  "",
         "poin":  200,
         "level":  "Menengah",
-        "soal":  "Diketahui (x - 2) dan (x + 3) merupakan faktor dari P(x) = xÂ³ + axÂ² + bx - 18. Tentukan a dan b .",
+        "soal":  "Diketahui $(x - 2)$ dan $(x + 3)$ merupakan faktor dari $P(x)$ = xÂ³ + axÂ² + bx - 18. Tentukan a dan b .",
         "kunci":  [
 
                   ]
@@ -1361,7 +1401,7 @@ window.BANK_SOAL = {
         "pembahasan":  "",
         "poin":  200,
         "level":  "Menengah",
-        "soal":  "Fungsi keuntungan suatu usaha adalah F(x) = xÂ³ + kxÂ² - 5x - 2. Pada x = 2, usaha berada pada titik impas sehingga (x - 2) merupakan faktor. Tentukan k.\r k = 1\r No.\r Soal",
+        "soal":  "Fungsi keuntungan suatu usaha adalah $F(x)$ = xÂ³ + kxÂ² - 5x - 2. Pada x = 2, usaha berada pada titik impas sehingga $(x - 2)$ merupakan faktor. Tentukan k.\r k = 1\r No.\r Soal",
         "kunci":  [
 
                   ]
@@ -1372,7 +1412,7 @@ window.BANK_SOAL = {
         "pembahasan":  "",
         "poin":  200,
         "level":  "Menengah",
-        "soal":  "Tuliskan bentuk yang equivalen dengan (a + b)Â³",
+        "soal":  "Tuliskan bentuk yang equivalen dengan $(a + b)$Â³",
         "kunci":  [
                       {
                           "pangkat":  0,
@@ -1392,7 +1432,7 @@ window.BANK_SOAL = {
         "pembahasan":  "",
         "poin":  200,
         "level":  "Menengah",
-        "soal":  "Sederhanakan (x + y)Â² - (x - y)Â².",
+        "soal":  "Sederhanakan $(x + y)$Â² - $(x - y)$Â².",
         "kunci":  [
                       {
                           "pangkat":  "1",
@@ -1433,21 +1473,26 @@ window.BANK_SOAL = {
     },
     {
         "id":  17,
-        "kunciTeksAsli":  "(x - 2)(x + 2)(xÂ² + 4)",
+        "kunciTeksAsli":  "$(x - 2)$$(x + 2)$(xÂ² + 4)",
         "pembahasan":  "",
         "poin":  200,
         "level":  "Menengah",
         "soal":  "Faktorkan xâ´ - 16 dengan menggunakan identitas polinomial.",
         "kunci":  [
                       {
-                          "pangkat":  0,
-                          "koef":  "-2",
-                          "var":  ""
+                          "pangkat":  "1",
+                          "koef":  "1",
+                          "var":  "x"
                       },
                       {
-                          "pangkat":  0,
+                          "pangkat":  "1",
+                          "koef":  "-2",
+                          "var":  "x"
+                      },
+                      {
+                          "pangkat":  "1",
                           "koef":  "+2",
-                          "var":  ""
+                          "var":  "x"
                       },
                       {
                           "pangkat":  0,
@@ -1458,23 +1503,28 @@ window.BANK_SOAL = {
     },
     {
         "id":  18,
-        "kunciTeksAsli":  "(a - b)(a + b)(aÂ² + bÂ²)",
+        "kunciTeksAsli":  "$(a - b)$$(a + b)$(aÂ² + bÂ²)",
         "pembahasan":  "",
         "poin":  200,
         "level":  "Menengah",
-        "soal":  "Bentuk yang equivalen dengan  aâ´ - bâ´ Adalah â€¦",
+        "soal":  "Bentuk yang equivalen dengan  aâ´ - bâ´ ^2dalah â€¦",
         "kunci":  [
 
                   ]
     },
     {
         "id":  19,
-        "kunciTeksAsli":  "(x + 4)Â² - xÂ² = 8x + 16",
+        "kunciTeksAsli":  "$(x + 4)$Â² - xÂ² = 8x + 16",
         "pembahasan":  "",
         "poin":  200,
         "level":  "Menengah",
-        "soal":  "Sebuah taman persegi memiliki sisi (x + 4) m dan persegi di bagian dalam bersisi x m. Tentukan luas daerah di antara kedua persegi menggunakan identitas polinomial.",
+        "soal":  "Sebuah taman persegi memiliki sisi $(x + 4)$ m dan persegi di bagian dalam bersisi x m. Tentukan luas daerah di antara kedua persegi menggunakan identitas polinomial.",
         "kunci":  [
+                      {
+                          "pangkat":  "1",
+                          "koef":  "1",
+                          "var":  "x"
+                      },
                       {
                           "pangkat":  0,
                           "koef":  "+4",
@@ -1498,7 +1548,7 @@ window.BANK_SOAL = {
         "pembahasan":  "",
         "poin":  200,
         "level":  "Menengah",
-        "soal":  "Besar suatu sinyal dimodelkan P(x) = (x + 1)Â² - (x - 1)Â². tentukan nilai P(x) saat x = 25.",
+        "soal":  "Besar suatu sinyal dimodelkan $P(x)$ = $(x + 1)$Â² - $(x - 1)$Â². tentukan nilai $P(x)$ saat x = 25.",
         "kunci":  [
                       {
                           "pangkat":  0,
@@ -1509,21 +1559,26 @@ window.BANK_SOAL = {
     },
     {
         "id":  21,
-        "kunciTeksAsli":  "(x - 3)(x + 1)(x - 4)",
+        "kunciTeksAsli":  "$(x - 3)$$(x + 1)$$(x - 4)$",
         "pembahasan":  "",
         "poin":  300,
         "level":  "Sulit",
-        "soal":  "Diketahui (x - 3) dan (x + 1) merupakan faktor dari P(x) = xÂ³ + axÂ² + bx - 12. Tentukan a dan b, kemudian faktorkan P(x).\r a = 0, b = -11;",
+        "soal":  "Diketahui $(x - 3)$ dan $(x + 1)$ merupakan faktor dari $P(x)$ = xÂ³ + axÂ² + bx - 12. Tentukan a dan b, kemudian faktorkan $P(x)$.\r a = 0, b = -11;",
         "kunci":  [
                       {
-                          "pangkat":  0,
-                          "koef":  "-3",
-                          "var":  ""
+                          "pangkat":  "1",
+                          "koef":  "1",
+                          "var":  "x"
                       },
                       {
-                          "pangkat":  0,
+                          "pangkat":  "1",
+                          "koef":  "-3",
+                          "var":  "x"
+                      },
+                      {
+                          "pangkat":  "1",
                           "koef":  "+1",
-                          "var":  ""
+                          "var":  "x"
                       },
                       {
                           "pangkat":  0,
@@ -1538,7 +1593,7 @@ window.BANK_SOAL = {
         "pembahasan":  "",
         "poin":  300,
         "level":  "Sulit",
-        "soal":  "Diketahui (xÂ² - 3x + 2) merupakan faktor dari P(x) = xâ´ + kxÂ³ - 4xÂ² + cx + d. Selain itu, sisa pembagian P(x) oleh (x - 3) adalah 6. Tentukan k, c, dan d.\r k = -3, c = 15, d = -4\r No.\r Soal",
+        "soal":  "Diketahui (xÂ² - 3x + 2) merupakan faktor dari $P(x)$ = xâ´ + kxÂ³ - 4xÂ² + cx + d. Selain itu, sisa pembagian $P(x)$ oleh $(x - 3)$ adalah 6. Tentukan k, c, dan d.\r k = -3, c = 15, d = -4\r No.\r Soal",
         "kunci":  [
 
                   ]
@@ -1609,7 +1664,7 @@ window.BANK_SOAL = {
         "pembahasan":  "",
         "poin":  300,
         "level":  "Sulit",
-        "soal":  "Tentukan bentuk yang equivalen dengan (a + b + c)Â²",
+        "soal":  "Tentukan bentuk yang equivalen dengan $(a + b + c)$Â²",
         "kunci":  [
                       {
                           "pangkat":  0,
@@ -1634,7 +1689,7 @@ window.BANK_SOAL = {
         "pembahasan":  "",
         "poin":  300,
         "level":  "Sulit",
-        "soal":  "Tentukan bentuk yang equivalen dengan (a + b + c)(aÂ² + bÂ² + cÂ² - ab - bc - ca)",
+        "soal":  "Tentukan bentuk yang equivalen dengan $(a + b + c)$(aÂ² + bÂ² + cÂ² - ab - bc - ca)",
         "kunci":  [
                       {
                           "pangkat":  0,
@@ -1649,7 +1704,7 @@ window.BANK_SOAL = {
         "pembahasan":  "",
         "poin":  300,
         "level":  "Sulit",
-        "soal":  "Kontekstual: Sebuah taman persegi besar memiliki sisi (x + 4) meter dan taman persegi kecil memiliki sisi (x - 4) meter. Tentukan luas daerah di antara kedua taman  saat x = 17.",
+        "soal":  "Kontekstual: Sebuah taman persegi besar memiliki sisi $(x + 4)$ meter dan taman persegi kecil memiliki sisi $(x - 4)$ meter. Tentukan luas daerah di antara kedua taman  saat x = 17.",
         "kunci":  [
                       {
                           "pangkat":  0,
@@ -1675,6 +1730,3 @@ window.BANK_SOAL = {
     }
 ]
 };
-
-// Catatan: Pastikan array 'kunci' dicek dan diisi manual jika kosong/salah sesuai format {koef: 1, var: 'x', pangkat: 2} 
-// karena jawaban asli bervariasi (disimpan di kunciTeksAsli).
