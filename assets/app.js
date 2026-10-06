@@ -237,21 +237,32 @@ function isPolynomialEqual(studentTerms, keyTerms) {
 
 function cleanMathString(str) {
   if (!str) return "";
+  
+  // 1. Fix exact OCR mojibake
+  str = str.replace(/A\ufffd/g, '^2');
+  str = str.replace(/A3/g, '^3');
+  str = str.replace(/xA/g, 'x^2');
+  str = str.replace(/x\ufffd['´`]/g, 'x^4');
+  str = str.replace(/x\ufffd/g, 'x^5'); 
   str = str.replace(/Â²/g, '^2');
   str = str.replace(/Â³/g, '^3');
+  str = str.replace(/â\ufffd\ufffd/g, '^4');
+  str = str.replace(/â\ufffd/g, '^4');
   str = str.replace(/â ´/g, '^4');
-  str = str.replace(/â µ/g, '^5');
-  str = str.replace(/â ¶/g, '^6');
-  str = str.replace(/â ·/g, '^7');
-  str = str.replace(/â ¸/g, '^8');
   str = str.replace(/A1\/,"A/g, '1/x^2');
-  str = str.replace(/xA/g, 'x^2');
   
+  // Strip any remaining unprintable replacements
+  str = str.replace(/\ufffd/g, '');
   str = str.replace(/\$/g, '');
   
-  str = str.replace(/\b([PVRF]\([xn]\))/g, '$$$1$$');
-  str = str.replace(/\(((?:\d*[a-zA-Z]\^?\d*\s*[-+]\s*)+\d*[a-zA-Z]?\^?\d*)\)/g, '$$($1)$$');
-  str = str.replace(/\b(\d*[a-zA-Z]\^?\d*(?:\s*[-+]\s*\d*[a-zA-Z]?\^?\d*)+)\b/g, '$$$1$$');
+  // 2. Wrap functions (e.g. P(x), V(x))
+  str = str.replace(/\b([PVRFS]\([-0-9a-zA-Z]+\))/g, '\\($1\\)');
+  
+  // 3. Wrap polynomial expressions in parentheses
+  str = str.replace(/\(((?:\d*[a-zA-Z]\^?\d*\s*[-+]\s*)+\d*[a-zA-Z]?\^?\d*)\)/g, '\\($1\\)');
+  
+  // 4. Wrap standalone polynomials outside parentheses
+  str = str.replace(/\b(\d*[a-zA-Z]\^?\d*(?:\s*[-+]\s*\d*[a-zA-Z]?\^?\d*)+)\b/g, '\\($1\\)');
   
   return str;
 }
