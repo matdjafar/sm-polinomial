@@ -235,6 +235,27 @@ function isPolynomialEqual(studentTerms, keyTerms) {
   return sStr === kStr;
 }
 
+function cleanMathString(str) {
+  if (!str) return "";
+  str = str.replace(/Â²/g, '^2');
+  str = str.replace(/Â³/g, '^3');
+  str = str.replace(/â ´/g, '^4');
+  str = str.replace(/â µ/g, '^5');
+  str = str.replace(/â ¶/g, '^6');
+  str = str.replace(/â ·/g, '^7');
+  str = str.replace(/â ¸/g, '^8');
+  str = str.replace(/A1\/,"A/g, '1/x^2');
+  str = str.replace(/xA/g, 'x^2');
+  
+  str = str.replace(/\$/g, '');
+  
+  str = str.replace(/\b([PVRF]\([xn]\))/g, '$$$1$$');
+  str = str.replace(/\(((?:\d*[a-zA-Z]\^?\d*\s*[-+]\s*)+\d*[a-zA-Z]?\^?\d*)\)/g, '$$($1)$$');
+  str = str.replace(/\b(\d*[a-zA-Z]\^?\d*(?:\s*[-+]\s*\d*[a-zA-Z]?\^?\d*)+)\b/g, '$$$1$$');
+  
+  return str;
+}
+
 async function onSoalClick(id) {
   if(document.getElementById(`btn-soal-${id}`).disabled) return;
   
@@ -255,7 +276,7 @@ async function onSoalClick(id) {
     document.getElementById('mLevelBadge').innerText = soalData.level;
     document.getElementById('mLevelBadge').style.background = `var(--${soalData.level.toLowerCase()})`;
     document.getElementById('mPoin').innerText = soalData.poin;
-    document.getElementById('mSoalTeks').innerHTML = soalData.soal;
+    document.getElementById('mSoalTeks').innerHTML = cleanMathString(soalData.soal);
     
     initPolyBuilder();
     
@@ -350,7 +371,9 @@ if(UI.btnKirim) {
       }
       
       if(soalData.pembahasan && stateGame.pengaturan.tampilPembahasan) {
-        document.getElementById('hasilPembahasan').innerHTML = `<b>Kunci: ${getSimplifiedPolynomialString(soalData.kunci)}</b><br><br>${soalData.pembahasan}`;
+        let cleanPem = cleanMathString(soalData.pembahasan);
+        let keyText = getSimplifiedPolynomialString(soalData.kunci).replace(/\^(\d+)/g, '^{$1}');
+        document.getElementById('hasilPembahasan').innerHTML = `<b>Kunci: \\(${keyText}\\)</b><br><br>${cleanPem}`;
         if(window.MathJax) MathJax.typesetPromise([document.getElementById('hasilPembahasan')]);
         document.getElementById('hasilPembahasan').style.display = 'block';
       } else {
