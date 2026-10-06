@@ -248,7 +248,15 @@ function cleanMathString(str) {
   str = str.replace(/A3/g, '^3');
   str = str.replace(/xA/g, 'x^2');
   str = str.replace(/x\ufffd['´`]/g, 'x^4');
+  str = str.replace(/x\ufffd\?['´`]/g, 'x^4');
   str = str.replace(/x\ufffd/g, 'x^5'); 
+  
+  // Specific catches for rendering artifacts (Soal 16 and 27)
+  str = str.replace(/xâ\ufffd´/g, 'x^4');
+  str = str.replace(/xâ\ufffdµ/g, 'x^5');
+  str = str.replace(/xâ\ufffd/g, 'x^4');
+  str = str.replace(/x[â\ufffd]+[´'`]/g, 'x^4');
+  str = str.replace(/x[â\ufffd]+µ/g, 'x^5'); 
   str = str.replace(/Â²/g, '^2');
   str = str.replace(/Â³/g, '^3');
   str = str.replace(/â\ufffd\ufffd/g, '^4');
@@ -277,6 +285,20 @@ async function onSoalClick(globalId) {
   
   let paket = Math.ceil(globalId / 30).toString();
   let localId = ((globalId - 1) % 30) + 1;
+  let lvlIndex = localId <= 10 ? 1 : (localId <= 20 ? 2 : 3);
+  let lvlName = lvlIndex === 1 ? 'Mudah' : (lvlIndex === 2 ? 'Sedang' : 'Sulit');
+  
+  let count = stateGame.statusSoal.filter(s => {
+    if(s.kelompok != myData.kelompok) return false;
+    let sLocal = parseInt(s.idSoal);
+    let sLvl = sLocal <= 10 ? 1 : (sLocal <= 20 ? 2 : 3);
+    return sLvl === lvlIndex;
+  }).length;
+  
+  if(count >= 3) {
+    alert(`Kelompok Anda sudah mencapai batas maksimal 3 soal untuk level ${lvlName}!`);
+    return;
+  }
   
   try {
     let btn = document.getElementById(`btn-soal-${globalId}`);
