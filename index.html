@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arena Soal Polinomial</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <script src="assets/soal_data.js"></script>
+</head>
+<body>
+  <div id="bannerTarget" class="banner">🎉 Kelompok <span id="bannerKel"></span> telah mencapai target poin! 🎉</div>
+  
+  <div id="setupScreen" class="setup-container">
+    <h2 style="text-align:center; margin-bottom: 20px;">Masuk Arena</h2>
+    <div class="form-group">
+      <label>Pilih Kelompok</label>
+      <select id="inputKelompok" class="form-control">
+        <option value="">-- Kelompok 1-10 --</option>
+        <script>for(let i=1;i<=10;i++) document.write(`<option value="${i}">Kelompok ${i}</option>`);</script>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Nama Anda (Siswa)</label>
+      <input type="text" id="inputNama" class="form-control" placeholder="Ketik nama Anda..." autocomplete="off">
+    </div>
+    <button id="btnMasuk" class="btn" style="width:100%; margin-top: 10px;">Masuk Kelas</button>
+  </div>
+
+  <div id="arenaScreen" class="container" style="display:none;">
+    <header>
+      <h1>Arena Soal Polinomial</h1>
+      <div class="user-info">
+        <div>👤 <span id="displayNama"></span> (Kel. <span id="displayKelompok"></span>)</div>
+        <div class="score-badge">⭐ <span id="displayPoin">0</span></div>
+      </div>
+    </header>
+    
+    <div id="alertSembunyi" style="display:none; text-align:center; color: var(--text-muted); margin-bottom: 15px;">
+      Skor sedang disembunyikan oleh guru.
+    </div>
+
+    <div class="grid-soal" id="gridSoal"></div>
+  </div>
+
+  <div class="modal-overlay" id="modalSoal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="modal-title">
+          Soal #<span id="mId"></span> 
+          <span id="mLevelBadge" class="badge">Mudah</span>
+          <span class="badge" style="background:#4b5563;">💰 <span id="mPoin"></span> Poin</span>
+        </div>
+        <div id="mTimer" style="color:var(--sulit); font-weight:bold; font-size:1.5rem; font-variant-numeric: tabular-nums;">03:00</div>
+      </div>
+      <div class="soal-teks" id="mSoalTeks">Memuat soal...</div>
+      <div class="form-group" id="mOpsiList" style="margin-bottom: 25px;">
+        <label style="display:block; margin-bottom:10px; font-weight:bold; font-size:1.1rem;">Jawaban Anda (Polinomial):</label>
+        
+        <div id="polyTermsContainer" style="display:flex; flex-direction:column; gap:10px; margin-bottom:15px;">
+          <!-- Template Baris Suku -->
+        </div>
+
+        <button id="btnTambahSuku" class="btn btn-outline" style="font-size:0.85rem; padding: 5px 10px;">+ Tambah Suku Lain</button>
+        
+        <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 15px; background: rgba(255,255,255,0.05); padding: 10px; border-radius: 4px;">
+          *Pratinjau Jawaban: <b id="polyPreview" style="color:var(--terjawab); font-size:1.1rem; padding-left:10px;">0</b>
+        </div>
+      </div>
+      
+      <div style="display:flex; justify-content:flex-end; gap:10px;">
+        <button id="btnBatal" class="btn btn-outline">Batal</button>
+        <button id="btnKirim" class="btn" disabled>Kirim Jawaban</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="modalHasil">
+    <div class="modal-content" style="text-align:center;">
+      <h2 id="hasilTitle" style="font-size:2rem; margin-bottom:10px;">Benar!</h2>
+      <p id="hasilPoin" style="font-size:1.2rem; margin-bottom:20px; font-weight:bold;"></p>
+      <div id="hasilPembahasan" style="background:rgba(255,255,255,0.05); padding:15px; border-radius:8px; text-align:left; margin-bottom:20px; display:none; border: 1px solid rgba(255,255,255,0.1);"></div>
+      <button class="btn" onclick="document.getElementById('modalHasil').classList.remove('active')">Tutup & Kembali</button>
+    </div>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="assets/api.js"></script>
+  <script src="mock/mock-api.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>

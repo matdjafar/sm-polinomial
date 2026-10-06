@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Panel Guru</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <div id="loginGuru" class="setup-container">
+    <h2 style="text-align:center; margin-bottom:20px;">Akses Guru</h2>
+    <input type="password" id="pinGuru" class="form-control" placeholder="Masukkan PIN" style="margin-bottom:15px; text-align:center;">
+    <button id="btnAuth" class="btn" style="width:100%">Masuk</button>
+  </div>
+
+  <div id="panelGuru" class="container" style="display:none;">
+    <header>
+      <h1>Panel Kontrol Guru</h1>
+      <button class="btn btn-outline" onclick="location.reload()">Refresh Data</button>
+    </header>
+
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:20px;">
+      <!-- Pengaturan -->
+      <div class="leaderboard-panel">
+        <h3>Pengaturan Game</h3>
+        <div style="margin-top:15px;">
+           <label style="display:block; margin-bottom:5px;">Tampilkan Skor Live</label>
+           <select id="setSkor" class="form-control" style="margin-bottom:15px;" onchange="simpanSet('TAMPIL_SKOR', this.value)">
+             <option value="TRUE">Ya, Tampilkan</option>
+             <option value="FALSE">Sembunyikan</option>
+           </select>
+
+           <label style="display:block; margin-bottom:5px;">Mode Kunci Soal</label>
+           <select id="setMode" class="form-control" style="margin-bottom:15px;" onchange="simpanSet('MODE_KUNCI', this.value)">
+             <option value="GLOBAL">Global (Satu soal direbut)</option>
+             <option value="PER_KELOMPOK">Per Kelompok (Papan mandiri)</option>
+           </select>
+
+           <label style="display:block; margin-bottom:5px;">Paket Soal Aktif</label>
+           <select id="setPaket" class="form-control" style="margin-bottom:15px;" onchange="simpanSet('PAKET_AKTIF', this.value)">
+             <option value="1">Paket 1</option>
+             <option value="2">Paket 2</option>
+             <option value="3">Paket 3</option>
+           </select>
+
+           <label style="display:block; margin-bottom:5px;">Tampilkan Pembahasan</label>
+           <select id="setBahas" class="form-control" style="margin-bottom:15px;" onchange="simpanSet('TAMPIL_PEMBAHASAN', this.value)">
+             <option value="FALSE">Jangan Tampilkan</option>
+             <option value="TRUE">Tampilkan setelah dijawab</option>
+           </select>
+           
+           <hr style="border:0; border-top:1px solid rgba(255,255,255,0.1); margin:20px 0;">
+           
+           <h3 style="color:var(--sulit); margin-bottom:10px;">Zona Berbahaya</h3>
+           <div style="display:flex; gap:10px; margin-bottom:10px;">
+             <input type="number" id="resetKelInput" class="form-control" placeholder="No. Kel" style="width:80px;">
+             <button class="btn" style="background:var(--menengah);" onclick="resetKelompok()">Reset Kelompok</button>
+           </div>
+           <button class="btn" style="background:var(--sulit); width:100%" onclick="resetSesi()">⚠️ Reset Seluruh Sesi (Hapus Semua Data)</button>
+        </div>
+      </div>
+
+      <!-- Rekap -->
+      <div class="leaderboard-panel">
+        <div style="display:flex; justify-content:space-between; align-items:center;">
+           <h3>Rekap Siswa</h3>
+           <button class="btn" style="padding:6px 12px; font-size:0.85rem;" onclick="loadRekap()">Muat Ulang</button>
+        </div>
+        <div style="max-height: 400px; overflow-y:auto; margin-top:15px;">
+           <table style="width:100%; border-collapse: collapse; font-size:0.95rem;">
+             <thead>
+               <tr style="border-bottom:1px solid rgba(255,255,255,0.2); text-align:left;">
+                 <th style="padding:8px;">Kel.</th>
+                 <th style="padding:8px;">Nama</th>
+                 <th style="padding:8px;">Bnr</th>
+                 <th style="padding:8px;">Poin</th>
+               </tr>
+             </thead>
+             <tbody id="tbRekap"></tbody>
+           </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="assets/api.js"></script>
+  <script src="mock/mock-api.js"></script>
+  <script>
+    let token = '';
+
+    document.getElementById('btnAuth').onclick = async () => {
+      let pin = document.getElementById('pinGuru').value;
+      try {
+        let btn = document.getElementById('btnAuth');
+        btn.innerText = "Memeriksa...";
+        token = await window.API.call('guruLogin', { pin });
+        document.getElementById('loginGuru').style.display = 'none';
+        document.getElementById('panelGuru').style.display = 'block';
+        loadStateSettings();
+        loadRekap();
+      } catch (e) { alert(e.message); }
+      finally { document.getElementById('btnAuth').innerText = "Masuk"; }
+    };
+
+    async function loadStateSettings() {
+      let st = await window.API.call('getState');
+      document.getElementById('setSkor').value = st.pengaturan.tampilSkor ? 'TRUE' : 'FALSE';
+      document.getElementById('setMode').value = st.pengaturan.modeKunci;
+      document.getElementById('setBahas').value = st.pengaturan.tampilPembahasan ? 'TRUE' : 'FALSE';
+      document.getElementById('setPaket').value = st.pengaturan.paketAktif || "1";
+    }
+
+    async function loadRekap() {
+      try {
+        let rekap = await window.API.call('aksiGuru', { token, perintah: 'rekapSiswa' });
+        let html = '';
+        rekap.sort((a,b) => a.kelompok - b.kelompok).forEach(r => {
+          html += `<tr style="border-bottom:1px solid rgba(255,255,255,0.05);">
+            <td style="padding:8px;">${r.kelompok}</td>
+            <td style="padding:8px;">${r.nama}</td>
+            <td style="padding:8px;">${r.jumlahBenar}</td>
+            <td style="padding:8px; color:var(--mudah); font-weight:bold;">${r.totalPoin}</td>
+          </tr>`;
+        });
+        document.getElementById('tbRekap').innerHTML = html || '<tr><td colspan="4" style="text-align:center; padding:15px; color:var(--text-muted);">Belum ada data siswa yang menjawab</td></tr>';
+      } catch(e) { alert(e.message); }
+    }
+
+    async function simpanSet(kunci, nilai) {
+      try {
+        await window.API.call('aksiGuru', { token, perintah: 'setPengaturan', kunci, nilai });
+      } catch(e) { alert(e.message); }
+    }
+
+    async function resetKelompok() {
+       let k = document.getElementById('resetKelInput').value;
+       if(!k) return alert("Masukkan nomor kelompok");
+       if(!confirm("Yakin mereset poin dan melepaskan soal kelompok " + k + "?")) return;
+       try {
+         await window.API.call('aksiGuru', { token, perintah: 'resetKelompok', kelompok: k });
+         alert("Kelompok direset");
+         loadRekap();
+       } catch(e) { alert(e.message); }
+    }
+
+    async function resetSesi() {
+      if(!confirm("YAKIN INGIN MERESET SEMUA DATA? INI TIDAK BISA DIBATALKAN!")) return;
+      if(!confirm("KETIK OK UNTUK MENGHAPUS SEMUA JAWABAN DAN SKOR")) return;
+      try {
+        await window.API.call('aksiGuru', { token, perintah: 'resetSesi' });
+        alert("Sesi berhasil direset sepenuhnya.");
+        loadRekap();
+      } catch(e) { alert(e.message); }
+    }
+  </script>
+</body>
+</html>

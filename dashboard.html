@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard Arena</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <style>
+    body { overflow: hidden; }
+    .map-grid { display: grid; grid-template-columns: repeat(10, 1fr); gap: 6px; margin-top:15px; }
+    .map-item { aspect-ratio: 1; border-radius: 4px; border:1px solid rgba(0,0,0,0.2); font-size: 0.7rem; display:flex; align-items:center; justify-content:center; color:white; font-weight:bold; transition:all 0.3s;}
+  </style>
+</head>
+<body>
+  <div id="bannerTarget" class="banner">🎉 Kelompok <span id="bannerKel"></span> telah mencapai target poin! 🎉</div>
+  <div class="container" style="max-width: 100%;">
+    <header style="margin-bottom:15px; padding:15px 25px;">
+      <h1 style="font-size:1.8rem;">Layar Utama Kelas</h1>
+      <div id="alertSembunyi" style="display:none; color:var(--menengah); font-weight:bold; font-size:1.2rem;">Tampilan Skor Disembunyikan</div>
+    </header>
+    
+    <div class="dashboard-grid">
+      <div class="leaderboard-panel">
+        <h3 style="margin-bottom:15px; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:10px;">🏆 Leaderboard</h3>
+        <div id="lbList">Memuat...</div>
+      </div>
+      
+      <div class="map-panel" style="overflow-y:auto;">
+         <div style="display:flex; justify-content:space-between; align-items:center;">
+           <h3>Peta Soal (Mode <span id="txtMode"></span>)</h3>
+           <div style="font-size:0.8rem; display:flex; gap:10px;">
+             <span style="color:var(--terjawab)">■ Terjawab</span>
+             <span style="color:var(--hangus)">■ Hangus</span>
+             <span style="opacity:0.5">■ Dikerjakan</span>
+           </div>
+         </div>
+         <div id="mapGrid" class="map-grid"></div>
+         
+         <h3 style="margin-top:25px; border-bottom:1px solid rgba(255,255,255,0.1); padding-bottom:10px;">Aktivitas Terbaru</h3>
+         <div id="logList" class="log-feed" style="margin-top:10px;"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="assets/api.js"></script>
+  <script src="mock/mock-api.js"></script>
+  <script>
+    function renderMap(state) {
+       const grid = document.getElementById('mapGrid');
+       if(grid.children.length === 0) {
+         for(let i=1; i<=30; i++) {
+            let div = document.createElement('div');
+            let baseClass = i<=10 ? 'level-mudah' : (i<=20 ? 'level-menengah' : 'level-sulit');
+            div.className = `map-item ${baseClass}`;
+            div.id = `map-block-${i}`;
+            div.innerText = i;
+            grid.appendChild(div);
+         }
+       }
+       
+       let mode = state.pengaturan.modeKunci;
+       document.getElementById('txtMode').innerText = mode;
+       
+       let paket = state.pengaturan.paketAktif || "1";
+       for(let i=1; i<=30; i++) {
+          let div = document.getElementById(`map-block-${i}`);
+          div.style.background = ''; // reset
+          div.style.opacity = '1';
+          
+          if(mode === 'GLOBAL') {
+             let st = state.statusSoal.find(s => s.key === `${paket}_${i}_GLOBAL`);
+             if(st && st.status === 'terjawab') div.style.background = 'var(--terjawab)';
+             else if (st && st.status === 'hangus') div.style.background = 'var(--hangus)';
+             else if (st && st.status === 'dikerjakan') div.style.opacity = '0.3';
+          }
+       }
+    }
+
+    let bannerShown = false;
+    async function loop() {
+       try {
+         const state = await window.API.call('getState');
+         
+         if(!state.pengaturan.tampilSkor) {
+            document.getElementById('lbList').style.display = 'none';
+            document.getElementById('alertSembunyi').style.display = 'block';
+         } else {
+            document.getElementById('lbList').style.display = 'block';
+            document.getElementById('alertSembunyi').style.display = 'none';
+            
+            let sorted = [...state.skorKelompok].sort((a,b) => b.poin - a.poin);
+            let html = '';
+            let target = parseInt(state.pengaturan.targetPoin) || 1000;
+            
+            sorted.forEach((sk, idx) => {
+               let pct = Math.min(100, Math.max(0, (sk.poin / target) * 100));
+               let cls = idx < 3 ? `rank-${idx+1}` : '';
+               html += `<div class="rank-item ${cls}">
+                 <div style="flex:1">
+                    <div style="display:flex; justify-content:space-between; margin-bottom:5px;">
+                      <b style="font-size:1.1rem">Kelompok ${sk.kelompok}</b>
+                      <span style="font-weight:bold">${sk.poin} Poin</span>
+                    </div>
+                    <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:${pct}%"></div></div>
+                 </div>
+               </div>`;
+               
+               if(sk.poin >= target && !bannerShown) {
+                  document.getElementById('bannerKel').innerText = sk.kelompok;
+                  document.getElementById('bannerTarget').style.display = 'block';
+                  confetti({particleCount: 300, spread: 100});
+                  bannerShown = true;
+               }
+            });
+            document.getElementById('lbList').innerHTML = html;
+         }
+         
+         renderMap(state);
+         
+         let logHtml = '';
+         state.log.forEach(l => { logHtml += `<div class="log-item">> ${l}</div>` });
+         document.getElementById('logList').innerHTML = logHtml;
+
+       } catch(e) { console.error(e); }
+       setTimeout(loop, 3000);
+    }
+    
+    loop();
+  </script>
+</body>
+</html>
