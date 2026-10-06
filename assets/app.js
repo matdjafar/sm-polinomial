@@ -219,8 +219,14 @@ function getSimplifiedPolynomialString(terms) {
 function updatePolyPreview() {
   if(!UI.polyPreview) return;
   let str = getSimplifiedPolynomialString(currentPolyTerms);
-  UI.polyPreview.innerText = str;
-  UI.btnKirim.disabled = (str === "0" && currentPolyTerms.length > 0 && currentPolyTerms[0].koef === '');
+  if(str === "0" && currentPolyTerms.length > 0 && currentPolyTerms[0].koef === '') {
+    UI.polyPreview.innerText = "0";
+    UI.btnKirim.disabled = true;
+  } else {
+    UI.polyPreview.innerText = "\\(" + str.replace(/\^(\d+)/g, '^{$1}') + "\\)";
+    if(window.MathJax) MathJax.typesetPromise([UI.polyPreview]);
+    UI.btnKirim.disabled = false;
+  }
 }
 
 function isPolynomialEqual(studentTerms, keyTerms) {
